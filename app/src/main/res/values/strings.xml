@@ -2,4 +2,5 @@
     <string name="app_name">ProgHops</string>
     <string name="action_settings">Settings</string>
     <string name="musician_test">musician test</string>
+    <string name="hops_between">Hops between</string>
 </resources>

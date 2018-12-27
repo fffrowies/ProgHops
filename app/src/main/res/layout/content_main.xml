@@ -5,6 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_main"
         tools:context=".Controller.MainActivity">
@@ -13,8 +14,40 @@
             android:id="@+id/recycler_view"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageSelectedLeft"/>
+    <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/imageSelectedLeft"
+            app:srcCompat="@drawable/ic_person_black_24dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/imageSelectedRight"
+            app:srcCompat="@drawable/ic_person_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="24dp"/>
+    <TextView
+            android:text="@string/hops_between"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textHops" android:textColor="@android:color/white"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageSelectedLeft" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/imageSelectedRight"
+            android:textSize="24sp"/>
+    <TextView
+            android:text="?"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/textHopsNumber" app:layout_constraintStart_toEndOf="@+id/imageSelectedLeft"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/imageSelectedRight"
+            android:layout_marginEnd="8dp" android:textStyle="bold" android:textAlignment="center"
+            android:textColor="@android:color/white" android:textSize="36sp"
+            app:layout_constraintTop_toBottomOf="@+id/textHops" app:layout_constraintHorizontal_bias="0.5"/>
 </android.support.constraint.ConstraintLayout>
