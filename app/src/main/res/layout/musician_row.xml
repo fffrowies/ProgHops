@@ -26,6 +26,7 @@
             android:id="@+id/title"
             android:text="@string/musician_test"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" android:textColor="@android:color/white"/>
+            android:layout_height="wrap_content" android:textColor="@android:color/white"
+            android:layout_marginTop="8dp"/>
 
 </android.support.constraint.ConstraintLayout>

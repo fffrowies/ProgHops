@@ -16,38 +16,60 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/imageSelectedLeft"/>
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/textMusicianLeft" android:layout_marginTop="8dp"/>
     <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:id="@+id/imageSelectedLeft"
+            android:id="@+id/imageMusicianLeft"
             app:srcCompat="@drawable/ic_person_black_24dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
     <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:id="@+id/imageSelectedRight"
+            android:id="@+id/imageMusicianRight"
             app:srcCompat="@drawable/ic_person_black_24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="24dp"/>
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
     <TextView
             android:text="@string/hops_between"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textHops" android:textColor="@android:color/white"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageSelectedLeft" android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/imageSelectedRight"
+            app:layout_constraintStart_toEndOf="@+id/imageMusicianLeft" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/imageMusicianRight"
             android:textSize="24sp"/>
     <TextView
             android:text="?"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:id="@+id/textHopsNumber" app:layout_constraintStart_toEndOf="@+id/imageSelectedLeft"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/imageSelectedRight"
+            android:id="@+id/textHopsNumber" app:layout_constraintStart_toEndOf="@+id/imageMusicianLeft"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/imageMusicianRight"
             android:layout_marginEnd="8dp" android:textStyle="bold" android:textAlignment="center"
             android:textColor="@android:color/white" android:textSize="36sp"
             app:layout_constraintTop_toBottomOf="@+id/textHops" app:layout_constraintHorizontal_bias="0.5"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textMusicianLeft"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/imageMusicianLeft"
+            tools:text="Musician One"
+            android:textSize="10sp"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="@+id/imageMusicianLeft"
+            app:layout_constraintEnd_toEndOf="@+id/imageMusicianLeft"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textMusicianRight" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageMusicianRight"
+            tools:text="Musician Two" android:textSize="10sp"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@+id/imageMusicianRight"
+            app:layout_constraintStart_toStartOf="@+id/imageMusicianRight"/>
 </android.support.constraint.ConstraintLayout>

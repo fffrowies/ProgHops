@@ -22,11 +22,17 @@ class MusiciansAdapter(private val musicians: ArrayList<Musician>) : RecyclerVie
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusiciansAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.musician_row, parent, false)
         val holder = ViewHolder(view)
+
         view.setOnClickListener {
             // val intent = Intent(parent.context, MusicianDetails::class.java)
             val intent = Intent(parent.context, MainActivity::class.java)
+            // intent.putExtra("name", musician[holder.adapterPosition].name )
+            val mIndexPosition = holder.adapterPosition
+
+            intent.putExtra("photoUrl", musician[holder.adapterPosition].photoUrl )
             intent.putExtra("name", musician[holder.adapterPosition].name )
-            // send another parameter (position)
+            intent.putExtra("mIndexPosition", "$mIndexPosition" )
+
             parent.context.startActivity(intent)
         }
         return holder

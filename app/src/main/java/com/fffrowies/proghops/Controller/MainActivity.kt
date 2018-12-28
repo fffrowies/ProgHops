@@ -2,12 +2,12 @@ package com.fffrowies.proghops.Controller
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.widget.ImageView
 import com.fffrowies.proghops.Adapter.MusiciansAdapter
 import com.fffrowies.proghops.R
 import com.fffrowies.proghops.Services.DataService
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             spanCount = 3
         }
-
         val screenSize = resources.configuration.screenWidthDp
         if (screenSize > 720) {
             spanCount += 2
@@ -36,21 +35,20 @@ class MainActivity : AppCompatActivity() {
             adapter = MusiciansAdapter(musicians)
         }
 
-        val imageSelectedLeft = findViewById<ImageView>(R.id.imageSelectedLeft)
-        imageSelectedLeft.setOnClickListener {
-            textHopsNumber.text = "5"
-        }
-
-        val imageSelectedRight = findViewById<ImageView>(R.id.imageSelectedRight)
-        imageSelectedRight.setOnClickListener {
-            textHopsNumber.text = "9"
-
-            val removeIndex = 1
-            musicians.removeAt(removeIndex)
-            recycler_view.adapter?.notifyItemRemoved(removeIndex)
+        val photoUrl = intent.getStringExtra("photoUrl")
+        if (photoUrl != null) {
+            Picasso.get().load(photoUrl).into(imageMusicianLeft)
         }
 
         val name = intent.getStringExtra("name")
-        textHopsNumber.text = name
+        if (name != null) {
+            textMusicianLeft.text = name
+        }
+
+        val mIndexPosition = intent.getStringExtra("mIndexPosition")
+        if (mIndexPosition != null) {
+            musicians.removeAt(mIndexPosition.toInt())
+            recycler_view.adapter?.notifyItemRemoved(mIndexPosition.toInt())
+        }
     }
 }
