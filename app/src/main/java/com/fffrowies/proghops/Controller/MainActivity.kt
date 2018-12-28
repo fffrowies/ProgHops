@@ -36,19 +36,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         val photoUrl = intent.getStringExtra("photoUrl")
+        val name = intent.getStringExtra("name")
+        val indexPosition = intent.getStringExtra("indexPosition")
+
         if (photoUrl != null) {
             Picasso.get().load(photoUrl).into(imageMusicianLeft)
         }
-
-        val name = intent.getStringExtra("name")
         if (name != null) {
             textMusicianLeft.text = name
         }
-
-        val mIndexPosition = intent.getStringExtra("mIndexPosition")
-        if (mIndexPosition != null) {
-            musicians.removeAt(mIndexPosition.toInt())
-            recycler_view.adapter?.notifyItemRemoved(mIndexPosition.toInt())
+        if (indexPosition != null) {
+            musicians.removeAt(indexPosition.toInt())
+            recycler_view.adapter?.notifyItemRemoved(indexPosition.toInt())
         }
     }
 }
