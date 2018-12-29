@@ -7,9 +7,10 @@ import android.support.v7.widget.GridLayoutManager
 import com.fffrowies.proghops.Adapter.MusiciansAdapter
 import com.fffrowies.proghops.R
 import com.fffrowies.proghops.Services.DataService
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import com.squareup.picasso.Picasso
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         val photoUrl = intent.getStringExtra("photoUrl")
         val name = intent.getStringExtra("name")
-        val indexPosition = intent.getStringExtra("indexPosition")
+        //val indexPosition = intent.getStringExtra("indexPosition")
 
         if (photoUrl != null) {
             Picasso.get().load(photoUrl).into(imageMusicianLeft)
@@ -45,9 +46,10 @@ class MainActivity : AppCompatActivity() {
         if (name != null) {
             textMusicianLeft.text = name
         }
-        if (indexPosition != null) {
-            musicians.removeAt(indexPosition.toInt())
-            recycler_view.adapter?.notifyItemRemoved(indexPosition.toInt())
-        }
+        //if (indexPosition != null) {
+        //    musicians.removeAt(indexPosition.toInt())
+        //    recycler_view.adapter?.notifyItemRemoved(indexPosition.toInt())
+        //}
+
     }
 }

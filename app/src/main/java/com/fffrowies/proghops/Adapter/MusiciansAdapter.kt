@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.fffrowies.proghops.Controller.Global
 import com.fffrowies.proghops.Controller.MainActivity
 import com.fffrowies.proghops.Model.Musician
 import com.fffrowies.proghops.R
@@ -28,11 +27,15 @@ class MusiciansAdapter(private val musicians: ArrayList<Musician>) : RecyclerVie
             // val intent = Intent(parent.context, MusicianDetails::class.java)
             val intent = Intent(parent.context, MainActivity::class.java)
             // intent.putExtra("name", musician[holder.adapterPosition].name )
+
             val indexPosition = holder.adapterPosition
 
-            intent.putExtra("name", musician[holder.adapterPosition].name )
-            intent.putExtra("photoUrl", musician[holder.adapterPosition].photoUrl )
-            intent.putExtra("indexPosition", "$indexPosition" )
+            intent.putExtra("name", musician[indexPosition].name )
+            intent.putExtra("photoUrl", musician[indexPosition].photoUrl )
+            //intent.putExtra("indexPosition", "$indexPosition" )
+
+            musicians.removeAt(indexPosition)
+            this.notifyItemRemoved(indexPosition)
 
             parent.context.startActivity(intent)
         }
