@@ -1,5 +1,6 @@
 package com.fffrowies.proghops.Controller
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -10,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.fffrowies.proghops.HopsActivity
 import com.fffrowies.proghops.Model.Musician
 import com.fffrowies.proghops.R
 import com.fffrowies.proghops.Services.DataService
@@ -19,7 +21,10 @@ import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
 
+    // holds how many clicks on images from grid
     var selected = 0
+
+    // holds data to refill the array of musicians
     var textImageLeftActual = ""
     var photoUrlLeftActual = ""
     var textImageRightActual = ""
@@ -36,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         val orientation = resources.configuration.orientation
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             spanCount = 3
+            onRestoreInstanceState(savedInstanceState)
         }
         val screenSize = resources.configuration.screenWidthDp
         if (screenSize > 720) {
@@ -45,6 +51,12 @@ class MainActivity : AppCompatActivity() {
         recycler_view.apply {
             layoutManager = GridLayoutManager(this@MainActivity, spanCount)
             adapter = MusiciansAdapter(musicians)
+        }
+
+        spark_button.setOnClickListener {
+            if (selected > 1) {
+                startHopsCalc()
+            }
         }
     }
 
@@ -63,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                 val indexPosition = holder.adapterPosition
 
                 if (selected == 0) {
-                    textInstructions.text = "Pick One" // R.string.pick_one.toString()
+                    textInstructions.text = getText(R.string.pick_one)
                 } else {
                     textInstructions.text = ""
                     spark_button.playAnimation()
@@ -89,22 +101,29 @@ class MainActivity : AppCompatActivity() {
 
         private fun distribute(selected: Int, indexPosition: Int) {
             if (selected % 2 == 0) {
+                if (selected > 0) {
+                    musicians.add(Musician(textImageLeftActual, photoUrlLeftActual))
+                }
                 textMusicianLeft.text = DataService.musician[indexPosition].name
                 Picasso.get().load(DataService.musician[indexPosition].photoUrl).into(imageMusicianLeft)
                 textImageLeftActual = DataService.musician[indexPosition].name
                 photoUrlLeftActual = DataService.musician[indexPosition].photoUrl
-                if (selected > 0) {
-                    musicians.add(Musician(textImageLeftActual, photoUrlLeftActual))
-                }
             } else {
+                if (selected > 1) {
+                    musicians.add(Musician(textImageRightActual, photoUrlRightActual))
+                }
                 textMusicianRight.text = DataService.musician[indexPosition].name
                 Picasso.get().load(DataService.musician[indexPosition].photoUrl).into(imageMusicianRight)
                 textImageRightActual = DataService.musician[indexPosition].name
                 photoUrlRightActual = DataService.musician[indexPosition].photoUrl
-                if (selected > 1) {
-                    musicians.add(Musician(textImageRightActual, photoUrlRightActual))
-                }
             }
         }
+    }
+
+    private fun startHopsCalc() {
+
+        val intent = Intent(this, HopsActivity::class.java)
+
+        startActivity(intent)
     }
 }
