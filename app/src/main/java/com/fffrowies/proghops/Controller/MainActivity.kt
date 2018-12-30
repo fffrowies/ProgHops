@@ -1,6 +1,7 @@
 package com.fffrowies.proghops.Controller
 
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
@@ -20,6 +21,10 @@ import com.squareup.picasso.Picasso
 class MainActivity : AppCompatActivity() {
 
     var selected = 0
+    var textImageLeftActual = ""
+    var photoUrlLeftActual = ""
+    var textImageRightActual = ""
+    var photoUrlRightActual = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,20 +64,29 @@ class MainActivity : AppCompatActivity() {
                 val indexPosition = holder.adapterPosition
 
                 if (selected == 0) {
-                    if (!textMusicianLeft.text.isNullOrBlank()) {
-                        
-                        println("FFFF " + textMusicianLeft.text)
+                    if (textImageLeftActual.isNotEmpty()) {
+                        musicians.add(Musician(textImageLeftActual, photoUrlLeftActual))
                     }
                     textMusicianLeft.text = DataService.musician[indexPosition].name
                     Picasso.get().load(DataService.musician[indexPosition].photoUrl).into(imageMusicianLeft)
+                    textImageLeftActual = DataService.musician[indexPosition].name
+                    photoUrlLeftActual = DataService.musician[indexPosition].photoUrl
                     selected++
                 } else {
-                    if (!textMusicianRight.text.isNullOrBlank()) {
-                        println("FFFF " + textMusicianRight.text)
+                    if (textImageRightActual.isNotEmpty()) {
+                        musicians.add(Musician(textImageRightActual, photoUrlRightActual))
                     }
                     textMusicianRight.text = DataService.musician[indexPosition].name
                     Picasso.get().load(DataService.musician[indexPosition].photoUrl).into(imageMusicianRight)
+                    textImageRightActual = DataService.musician[indexPosition].name
+                    photoUrlRightActual = DataService.musician[indexPosition].photoUrl
+
+                    textHopsNumber.setTextColor(Color.parseColor("#ff99cc00"))
+                    textHopsNumber.setTextSize(3,26F)
+
+
                     selected--
+
                 }
 
                 musicians.removeAt(indexPosition)

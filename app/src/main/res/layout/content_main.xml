@@ -46,12 +46,12 @@
             android:textSize="24sp"/>
     <TextView
             android:text="?"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="61dp"
             android:id="@+id/textHopsNumber" app:layout_constraintStart_toEndOf="@+id/imageMusicianLeft"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/imageMusicianRight"
             android:layout_marginEnd="8dp" android:textStyle="bold" android:textAlignment="center"
-            android:textColor="@android:color/white" android:textSize="36sp"
+            android:textColor="@android:color/holo_red_dark" android:textSize="36sp"
             app:layout_constraintTop_toBottomOf="@+id/textHops" app:layout_constraintHorizontal_bias="0.5"/>
     <TextView
             android:layout_width="wrap_content"
@@ -72,4 +72,5 @@
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="@+id/imageMusicianRight"
             app:layout_constraintStart_toStartOf="@+id/imageMusicianRight"/>
+
 </android.support.constraint.ConstraintLayout>

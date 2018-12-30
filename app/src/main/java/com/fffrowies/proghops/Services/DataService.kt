@@ -21,46 +21,40 @@ object DataService {
             "https://upload.wikimedia.org/wikipedia/commons/3/3c/Terry_Bozzio_Fantomas_Quart_Festival_2005.jpg"),
         Musician(
             "Allan Holdsworth",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/e/e5/Holdsworth-quilter-rig.jpg"),
         Musician(
             "Greg Lake",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/e/e7/Emerson%2C_Lake_%26_Palmer_03.jpg"),
         Musician(
             "Adrian Belew",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/1/13/Adrian_Belew%2C_live_in_Lisbon%2C_2017.jpg"),
         Musician(
             "Phil Collins",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/2/27/Phil_Collins_1981.jpg"),
         Musician(
             "Robert Fripp",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/7/7b/Robert_Fripp.jpg"),
         Musician(
             "Tony Levin",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/f/f3/Tony_levin.jpg"),
         Musician(
             "Frank Zappa",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/e/e6/Zappa.jpg"),
         Musician(
             "Didier Malherbe",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/6/6e/Didier_Malherbe.jpg"),
         Musician(
             "Mino Cinelu",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/4/42/Mino_Cinelu.jpg"),
         Musician(
             "Napoleon Murphy Brock",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
-        Musician(
-            "Tommy Mars",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
-        Musician(
-            "Patrick O'Hearn",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/2/2d/Napoleon_Murphy_Brock_2006.jpg"),
         Musician(
             "Ruth Underwood",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/9/9a/Ruth_Underwood.jpg"),
         Musician(
             "George Duke",
-            "http://via.placeholder.com/350/ffff00/ff0000"),
+            "https://upload.wikimedia.org/wikipedia/commons/f/fb/George_Duke.jpg"),
         Musician(
             "Chester Thompson",
             "http://via.placeholder.com/350/ffff00/ff0000"),
