@@ -10,6 +10,22 @@
         tools:showIn="@layout/activity_main"
         tools:context=".Controller.MainActivity">
 
+    <com.varunest.sparkbutton.SparkButton
+            android:id="@+id/spark_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:sparkbutton_activeImage="@drawable/ic_send_white_24dp"
+            app:sparkbutton_inActiveImage="@drawable/ic_send_transp_24dp"
+            app:sparkbutton_iconSize="40dp"
+            app:sparkbutton_primaryColor="@color/colorPrimaryAnim"
+            app:sparkbutton_secondaryColor="@color/colorSecondaryAnim"
+            app:layout_constraintStart_toEndOf="@+id/imageMusicianLeft"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageMusicianRight"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -17,7 +33,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/textMusicianLeft" android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/spark_button"/>
     <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -35,24 +51,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="24dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:scaleType="centerCrop"/>
-    <TextView
-            android:text="@string/hops_between"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textHops" android:textColor="@android:color/white"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageMusicianLeft" android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/imageMusicianRight"
-            android:textSize="24sp"/>
-    <TextView
-            android:text="?"
-            android:layout_width="40dp"
-            android:layout_height="61dp"
-            android:id="@+id/textHopsNumber" app:layout_constraintStart_toEndOf="@+id/imageMusicianLeft"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/imageMusicianRight"
-            android:layout_marginEnd="8dp" android:textStyle="bold" android:textAlignment="center"
-            android:textColor="@android:color/holo_red_dark" android:textSize="36sp"
-            app:layout_constraintTop_toBottomOf="@+id/textHops" app:layout_constraintHorizontal_bias="0.5"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,5 +70,15 @@
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="@+id/imageMusicianRight"
             app:layout_constraintStart_toStartOf="@+id/imageMusicianRight"/>
+    <TextView
+            android:layout_width="78dp"
+            android:layout_height="75dp"
+            android:id="@+id/textInstructions" android:textAlignment="center"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/spark_button"
+            app:layout_constraintTop_toTopOf="@+id/spark_button"
+            app:layout_constraintStart_toEndOf="@+id/imageMusicianLeft" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageMusicianRight" android:layout_marginEnd="8dp"
+            android:textSize="24sp" android:text="Pick Two" app:layout_constraintVertical_bias="1.0"/>
 
 </android.support.constraint.ConstraintLayout>

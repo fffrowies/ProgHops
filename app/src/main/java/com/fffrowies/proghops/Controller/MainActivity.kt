@@ -1,7 +1,6 @@
 package com.fffrowies.proghops.Controller
 
 import android.content.res.Configuration
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
@@ -64,30 +63,16 @@ class MainActivity : AppCompatActivity() {
                 val indexPosition = holder.adapterPosition
 
                 if (selected == 0) {
-                    if (textImageLeftActual.isNotEmpty()) {
-                        musicians.add(Musician(textImageLeftActual, photoUrlLeftActual))
-                    }
-                    textMusicianLeft.text = DataService.musician[indexPosition].name
-                    Picasso.get().load(DataService.musician[indexPosition].photoUrl).into(imageMusicianLeft)
-                    textImageLeftActual = DataService.musician[indexPosition].name
-                    photoUrlLeftActual = DataService.musician[indexPosition].photoUrl
-                    selected++
+                    textInstructions.text = "Pick One" // R.string.pick_one.toString()
                 } else {
-                    if (textImageRightActual.isNotEmpty()) {
-                        musicians.add(Musician(textImageRightActual, photoUrlRightActual))
-                    }
-                    textMusicianRight.text = DataService.musician[indexPosition].name
-                    Picasso.get().load(DataService.musician[indexPosition].photoUrl).into(imageMusicianRight)
-                    textImageRightActual = DataService.musician[indexPosition].name
-                    photoUrlRightActual = DataService.musician[indexPosition].photoUrl
-
-                    textHopsNumber.setTextColor(Color.parseColor("#ff99cc00"))
-                    textHopsNumber.setTextSize(3,26F)
-
-
-                    selected--
-
+                    textInstructions.text = ""
+                    spark_button.playAnimation()
+                    spark_button.isChecked = true
                 }
+
+                distribute(selected, indexPosition)
+
+                selected++
 
                 musicians.removeAt(indexPosition)
                 this.notifyItemRemoved(indexPosition)
@@ -100,6 +85,26 @@ class MainActivity : AppCompatActivity() {
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val image: ImageView = itemView.findViewById(R.id.photo)
             val title: TextView = itemView.findViewById(R.id.title)
+        }
+
+        private fun distribute(selected: Int, indexPosition: Int) {
+            if (selected % 2 == 0) {
+                textMusicianLeft.text = DataService.musician[indexPosition].name
+                Picasso.get().load(DataService.musician[indexPosition].photoUrl).into(imageMusicianLeft)
+                textImageLeftActual = DataService.musician[indexPosition].name
+                photoUrlLeftActual = DataService.musician[indexPosition].photoUrl
+                if (selected > 0) {
+                    musicians.add(Musician(textImageLeftActual, photoUrlLeftActual))
+                }
+            } else {
+                textMusicianRight.text = DataService.musician[indexPosition].name
+                Picasso.get().load(DataService.musician[indexPosition].photoUrl).into(imageMusicianRight)
+                textImageRightActual = DataService.musician[indexPosition].name
+                photoUrlRightActual = DataService.musician[indexPosition].photoUrl
+                if (selected > 1) {
+                    musicians.add(Musician(textImageRightActual, photoUrlRightActual))
+                }
+            }
         }
     }
 }
