@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.fffrowies.proghops.HopsActivity
 import com.fffrowies.proghops.Model.Musician
 import com.fffrowies.proghops.R
@@ -37,6 +38,19 @@ class MainActivity : AppCompatActivity() {
 
         val musicians = DataService.musician
 
+        if (savedInstanceState != null) {
+            selected = savedInstanceState.getInt("selected_key")
+            textImageLeftActual = savedInstanceState.getString("txv_image_left_key")
+            photoUrlLeftActual = savedInstanceState.getString("photo_url_left_key")
+            textImageRightActual = savedInstanceState.getString("txv_image_right_key")
+            photoUrlRightActual = savedInstanceState.getString("photo_url_right_key")
+
+            textMusicianLeft.text = textImageLeftActual
+            Picasso.get().load(photoUrlLeftActual).into(imageMusicianLeft)
+            textMusicianRight.text = textImageRightActual
+            Picasso.get().load(photoUrlRightActual).into(imageMusicianRight)
+        }
+
         var spanCount = 2
         val orientation = resources.configuration.orientation
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -58,6 +72,16 @@ class MainActivity : AppCompatActivity() {
                 startHopsCalc()
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putInt("selected_key", selected)
+        outState.putString("txv_image_left_key", textImageLeftActual)
+        outState.putString("photo_url_left_key", photoUrlLeftActual)
+        outState.putString("txv_image_right_key", textImageRightActual)
+        outState.putString("photo_url_right_key", photoUrlRightActual)
     }
 
     inner class MusiciansAdapter(private val musicians: ArrayList<Musician>) : RecyclerView.Adapter<MusiciansAdapter.ViewHolder>() {
